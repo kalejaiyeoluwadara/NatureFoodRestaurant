@@ -5,6 +5,7 @@ import Welcome from '../home/welcome'
 import Started from "../home/started";
 import Signup from '../home/signup';
 import Login from '../home/login';
+import Home from '../../store/home';
 import { motion, AnimatePresence } from "framer-motion";
 import { useGlobal } from '../../context';
 function Admin() {
@@ -15,12 +16,12 @@ function Admin() {
         signup,
         started,
         setSignup,
-        login,
+        login,home,
         setLogin,setView} = useGlobal();
   return (
     <motion.div>
       <AnimatePresence>
-        {start && (
+         {start && (
           <AnimatePresence>
             <Start />
           </AnimatePresence>
@@ -28,7 +29,8 @@ function Admin() {
         {welcome && <Welcome />}
         {started && <Started />}
         {signup && <Signup />}
-        {login && <Login />}
+        {login && <Login />} 
+        {home && <Home/>}
       </AnimatePresence>
     </motion.div>
   );

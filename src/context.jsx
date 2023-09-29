@@ -8,13 +8,15 @@ function AppProvider({children}) {
   const [welcome, setWelcome] = useState(false);
   const [signup, setSignup] = useState(false);
   const [login, setLogin] = useState(false);
+  const [home,setHome] = useState(false);
 
-  const setView = ({a=false,b=false,c=false,d=false,e=false}) =>{
+  const setView = ({a=false,b=false,c=false,d=false,e=false,f=false}) =>{
       setStart(a)
       setWelcome(b)
       setStarted(c)
       setSignup(d)
       setLogin(e)
+      setHome(f);
     
   }
  
@@ -27,6 +29,7 @@ function AppProvider({children}) {
         welcome,
         setWelcome,
         signup,
+        home,
         setSignup,
         login,
         setLogin,setView

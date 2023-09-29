@@ -6,6 +6,7 @@ import facebook from "./../../assets/img/facebook.png";
 import google from "./../../assets/img/google.png";
 import lock from "./../../assets/img/lock.png";
 import msg from "./../../assets/img/msg.png";
+import { useGlobal } from "../../context";
 import { motion } from "framer-motion";
 const Input = ({ place }) => (
   <div className="flex rounded-[6px]  sh  w-[320px] px-4 py-3 put  ">
@@ -13,9 +14,10 @@ const Input = ({ place }) => (
   </div>
 );
 function Login() {
+  const {setView} = useGlobal();
   return (
     <motion.main
-     initial={{
+      initial={{
         y: "-100vh",
       }}
       animate={{
@@ -24,7 +26,8 @@ function Login() {
       transition={{
         duration: 1,
       }}
-       className="flex pt-12 flex-col justify-between items-center ">
+      className="flex py-12 px-6 flex-col justify-between items-center "
+    >
       <div>
         <img src={account} alt="" />
         <p className="font-[600] opacity-80 text-[23px] ">
@@ -40,17 +43,24 @@ function Login() {
       <div className="flex items-center justify-center mt-6 flex-col">
         <p className="font-[600] opacity-70 ">or continue with</p>
         <div className="flex  mt-4 gap-8 ">
-          <div className="sqr flex gap-3 items-center justify-center" >
+          <div className="sqr flex gap-3 items-center justify-center">
             <img src={facebook} alt="" />
-            Facebook</div>
-          <div className="sqr flex gap-3 items-center justify-center" >
+            Facebook
+          </div>
+          <div className="sqr flex gap-3 items-center justify-center">
             <img src={google} alt="" />
-            Google</div> 
+            Google
+          </div>
         </div>
       </div>
       <p className="text-red-500 font-[600] ">forgot your password?</p>
       <div className="flex flex-col items-center mt-6 justify-center gap-4  ">
-        <button className="flex text-white rounded-xl shadow-md py-3 px-4 gap-4 mt-6 w-[290px] bg-[#25401D] capitalize  items-center justify-center ">
+        <button
+          onClick={() => {
+            setView({ a: false, b: false, c: false, d: false, e: false,f:true })
+          }}
+          className="flex text-white rounded-xl shadow-md py-3 px-4 gap-4 mt-6 w-[290px] bg-[#25401D] capitalize  items-center justify-center "
+        >
           Login
         </button>
       </div>
