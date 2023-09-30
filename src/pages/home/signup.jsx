@@ -25,7 +25,7 @@ function Signup() {
       transition={{
         duration: 1,
       }}
-      className="flex pt-20 flex-col justify-between items-center "
+      className="flex py-20 flex-col justify-between items-center "
     >
       <div>
         <img src={account} alt="" />
@@ -41,7 +41,16 @@ function Signup() {
       <div className="flex flex-col items-center mt-6 justify-center gap-4  ">
         <button
           onClick={() => {
-            setView({ a: false, b: false, c: false, d: true, e: false });
+            setView({
+              a: false,
+              b: false,
+              c: false,
+              d: false,
+              e: false,
+              f: true,
+              g: false,
+            });
+            setCart(false);
           }}
           className="flex text-white rounded-xl shadow-md py-3 px-4 gap-4 mt-12 w-[290px] bg-[#25401D] capitalize  items-center justify-center "
         >

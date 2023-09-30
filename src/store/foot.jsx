@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import mail from './../assets/img/mail.png'
-function Foot({name,img}) {
+import { useGlobal } from '../context';
+function Foot({name,img,func}) {
+  const [check,setCheck] =useState(false);
+    const { cart,home,bookings} = useGlobal();
+    // ${name ?'text-red-600':'text-gray-500'}
   return (
-    <div className='flex flex-col  items-center ' >
-      <img src={img} alt="" />
-      <p className='text-gray-500'>{name}</p>
+    <div
+      className={`flex flex-col   hover:text-red-600 hover:font-bold cursor-pointer items-center `}
+    >
+      <img className="h-[20px]" src={img} alt="" />
+      <p className=" transition-[0.3] text-[14px] ">{name}</p>
     </div>
-  )
+  );
 }
 
 export default Foot

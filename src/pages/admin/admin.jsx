@@ -6,6 +6,9 @@ import Started from "../home/started";
 import Signup from '../home/signup';
 import Login from '../home/login';
 import Home from '../../store/home';
+import Cart from '../../store/cart';
+import Pops from '../../store/pops';
+import Restaurants from '../../store/restaurants';
 import { motion, AnimatePresence } from "framer-motion";
 import { useGlobal } from '../../context';
 function Admin() {
@@ -17,7 +20,7 @@ function Admin() {
         started,
         setSignup,
         login,home,
-        setLogin,setView} = useGlobal();
+        setLogin,setView,cart,bookings,pops} = useGlobal();
   return (
     <motion.div>
       <AnimatePresence>
@@ -31,6 +34,9 @@ function Admin() {
         {signup && <Signup />}
         {login && <Login />} 
         {home && <Home/>}
+        {cart && <Cart/>}
+        { bookings && <Restaurants/>}
+        {pops && <Pops/>}
       </AnimatePresence>
     </motion.div>
   );

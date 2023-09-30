@@ -5,7 +5,6 @@ import right from "./../../assets/img/right.png";
 import { motion } from "framer-motion";
 import { useGlobal } from "../../context";
 function Welcome() {
-    const col = "#25401D";
     const { setView } = useGlobal();
   return (
     <motion.div
@@ -27,12 +26,13 @@ function Welcome() {
         }}
         animate={{
           y: 0,
+          x:-180,
           scale: 1,
         }}
         transition={{
           duration: 1.3,
         }}
-        className=" -translate-x-[120px] h-[500px] object-cover overflow-x-hidden    "
+        className=" -translate-x-[180px] h-[500px] object-cover    "
         src={start}
         alt=""
       />

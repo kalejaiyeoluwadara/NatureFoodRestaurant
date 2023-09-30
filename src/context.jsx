@@ -9,21 +9,40 @@ function AppProvider({children}) {
   const [signup, setSignup] = useState(false);
   const [login, setLogin] = useState(false);
   const [home,setHome] = useState(false);
-
-  const setView = ({a=false,b=false,c=false,d=false,e=false,f=false}) =>{
-      setStart(a)
-      setWelcome(b)
-      setStarted(c)
-      setSignup(d)
-      setLogin(e)
-      setHome(f);
+  const [cart,setCart] = useState(false)
+  const [bookings, setBookings] = useState(false);
+  const [pops, setPops] = useState(false);
+  const setView = ({
+    a = false,
+    b = false,
+    c = false,
+    d = false,
+    e = false,
+    f = false,
+    g = false,
+    h = false,
+    i= false,
+  }) => {
+    setStart(a);
+    setWelcome(b);
+    setStarted(c);
+    setSignup(d);
+    setLogin(e);
+    setHome(f);
+    setCart(g)
+    setBookings(h)
+    setPops(i)
+        
+          console.log(cart);
     
-  }
+
+  };
  
   return (
     <AppContext.Provider
       value={{
         start,
+        pops,setPops,
         started,
         setStart,
         welcome,
@@ -32,7 +51,7 @@ function AppProvider({children}) {
         home,
         setSignup,
         login,
-        setLogin,setView
+        setLogin,setView,setCart,cart,bookings,setBookings
       }}
     >
       {children}
