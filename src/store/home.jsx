@@ -35,9 +35,9 @@ function Home() {
       </header>
 
       <div className="flex mt-10 justify-between items-center">
-        <div className="flex bg-gray-100 items-center justify-center  rounded-md px-4 py-4 w-[260px]  ">
-          <img src={search} className="mr-4" alt="" />
-          <input type="text" placeholder="search meal" />
+        <div className="flex  bg-gray-100 items-center justify-start gap-3  rounded-md px-4 py-4 w-[300px]  ">
+          <img src={search} className="" alt="" />
+          <input type="text" placeholder="Search meals" />
         </div>
         <img src={add} alt="" />
       </div>
@@ -60,7 +60,7 @@ function Home() {
         </div>
       </main>
       <Menu />
-      <Popular  />
+      <Popular />
 
       <Nav />
     </div>

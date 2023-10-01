@@ -13,7 +13,7 @@ const Slot = () => {
   return (
     <section className="flex flex-col gap-2">
       <div>
-        <img className="h-[130px] rounded-xl w-[150px] " src={place} alt="" />
+        <img className="h-[130px] rounded-xl w-[170px] " src={place} alt="" />
       </div>
       <div className="flex items-center justify-between ">
         <section>
@@ -27,7 +27,7 @@ const Slot = () => {
 };
 function Restaurants() {
   return (
-    <main className="h-[100%] py-10 pb-40 px-5 w-screen  ">
+    <main className="h-[100%] py-10 mb-20 px-5 w-screen  ">
       <section className="flex mb-12 justify-between items-center  ">
         <img
           src={port}
@@ -42,14 +42,14 @@ function Restaurants() {
       </section>
 
       <div className="flex mt-10 justify-between items-center">
-        <div className="flex bg-gray-100 items-center justify-center  rounded-md px-4 py-4 w-[300px]  ">
-          <img src={search} className="mr-4" alt="" />
+        <div className="flex  bg-gray-100 items-center justify-start gap-3  rounded-md px-4 py-4 w-[300px]  ">
+          <img src={search} className="" alt="" />
           <input type="text" placeholder="Search Restaurants" />
         </div>
         <img src={add} alt="" />
       </div>
-
-      <section className="flex mt-8 items-center justify-center gap-4 flex-wrap">
+      <p className="mt-8 font-[600] text-[20px] ">Popular Restaurants</p>
+      <section className="flex mt-2 items-center justify-between gap-4 flex-wrap">
         {
             [1,2,3,45,6,7,8,8].map((d) =>{
                 return <Slot />;
