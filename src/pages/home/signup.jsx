@@ -17,13 +17,13 @@ function Signup() {
   return (
     <motion.main
       initial={{
-        x: "100vw",
+        x: "50vw",
       }}
       animate={{
         x: 0,
       }}
       transition={{
-        duration: 1,
+        duration: 0.5,
       }}
       className="flex py-20 flex-col justify-between items-center "
     >
@@ -50,7 +50,6 @@ function Signup() {
               f: true,
               g: false,
             });
-            setCart(false);
           }}
           className="flex text-white rounded-xl shadow-md py-3 px-4 gap-4 mt-12 w-[290px] bg-[#25401D] capitalize  items-center justify-center "
         >

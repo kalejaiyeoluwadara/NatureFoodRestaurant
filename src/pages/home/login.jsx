@@ -18,7 +18,7 @@ function Login() {
   return (
     <motion.main
       initial={{
-        y: "-100vh",
+        y: "-70vh",
       }}
       animate={{
         y: 0,

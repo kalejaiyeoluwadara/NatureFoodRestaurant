@@ -1,6 +1,7 @@
 import React from 'react'
 import food2 from "./../assets/img/food2.png";
 import food1 from "./../assets/img/food1.png";
+import { useGlobal } from '../context';
 const Slot = ({name,time,img}) =>{
     return (
       <div className="flex  relative flex-col gap-2 ">
@@ -18,11 +19,19 @@ const Slot = ({name,time,img}) =>{
     );
 }
 function Menu() {
+  const {setView} =useGlobal()
   return (
     <main className="flex mt-8 flex-col gap-5 ">
       <div className="flex items-center justify-between">
         <h1 className="font-[600] text-[20px] ">Available Menu</h1>
-        <p className="font-[500] text-gray-400 text-[14px] ">View more</p>
+        <p
+          onClick={() => {
+            setView({ f: false, g: false, h: false, i: true });
+          }}
+          className="font-[500] text-gray-600 text-[15px] "
+        >
+          View more
+        </p>
       </div>
       <div className="flex gap-3 justify-between  items-start">
         <Slot name={"Tomato pizza"} img={food1} time={"30"} />

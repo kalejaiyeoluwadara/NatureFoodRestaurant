@@ -8,6 +8,8 @@ function AppProvider({children}) {
   const [welcome, setWelcome] = useState(false);
   const [signup, setSignup] = useState(false);
   const [login, setLogin] = useState(false);
+  const [buy, setBuy] = useState(false);
+  const [list, setList] = useState([]);
   const [home,setHome] = useState(false);
   const [cart,setCart] = useState(false)
   const [bookings, setBookings] = useState(false);
@@ -22,6 +24,7 @@ function AppProvider({children}) {
     g = false,
     h = false,
     i= false,
+    j=false,
   }) => {
     setStart(a);
     setWelcome(b);
@@ -32,8 +35,7 @@ function AppProvider({children}) {
     setCart(g)
     setBookings(h)
     setPops(i)
-        
-          console.log(cart);
+    setBuy(j)    
     
 
   };
@@ -41,8 +43,10 @@ function AppProvider({children}) {
   return (
     <AppContext.Provider
       value={{
+        buy,setBuy,
         start,
         pops,setPops,
+        list,setList,
         started,
         setStart,
         welcome,

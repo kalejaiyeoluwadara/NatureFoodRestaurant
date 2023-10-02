@@ -2,10 +2,11 @@ import React from 'react'
 import { useEffect } from 'react';
 import Nav from './nav';
 import alarm from './../assets/img/alarm.png'
+import {motion} from 'framer-motion'
 import add from "./../assets/img/add.png";
 import search from "./../assets/img/search.png";
-import wing from "./../assets/img/wing.png";
-import port from "./../assets/img/port3.jpg";
+import wing from "./../assets/img/sand1.png";
+import port from "./../assets/img/profile.jpg";
 import Menu from './menu';
 import { useGlobal } from '../context';
 import Popular from './popular';
@@ -13,7 +14,18 @@ function Home() {
   const { setCart,setPops,setView } = useGlobal();
   
   return (
-    <div className="h-[100%] py-10 px-8 relative  w-screen ">
+    <motion.div
+      initial={{
+        scale: 0.6,
+      }}
+      animate={{
+        scale: 1,
+      }}
+      transition={{
+        duration: 0.3,
+      }}
+      className="h-[100%] py-10 px-8 relative  w-screen "
+    >
       <header className="flex justify-between items-center">
         <div className="flex items-center gap-3">
           <img
@@ -35,7 +47,7 @@ function Home() {
       </header>
 
       <div className="flex mt-10 justify-between items-center">
-        <div className="flex  bg-gray-100 items-center justify-start gap-3  rounded-md px-4 py-4 w-[300px]  ">
+        <div className="flex  bg-gray-100 items-center justify-start gap-3  rounded-md px-4 py-4 w-[280px]  ">
           <img src={search} className="" alt="" />
           <input type="text" placeholder="Search meals" />
         </div>
@@ -47,13 +59,31 @@ function Home() {
           <p className="text-[20px] text-white font-[600]  ">
             Always ready for you
           </p>
-          <button className="flex bg-white rounded-md px-5 py-2 text-black  ">
+          <motion.button
+            whileTap={{
+              scale: 0.8,
+            }}
+            whileHover={{
+              scale: 1.1,
+            }}
+            transition={{
+              duration: 0.4,
+            }}
+            onClick={() => {
+              setView({ f: false, g: false, h: false, i: true });
+            }}
+            className="flex bg-white rounded-md px-5 py-2 text-black  "
+          >
             Buy Now
-          </button>
+          </motion.button>
         </div>
         <div className="w-[50%] h-[100%] ">
-          <img
-            className=" relative -bottom-10 object-contain translate-x-6 w-[210px] "
+          <motion.img
+            animate={{
+              opacity: [0, 1, 0, 1, 0, 1],
+              transition: { duration: 2,yoyo:Infinity },
+            }}
+            className="relative  -bottom-10 object-contain translate-x-6 w-[210px]"
             src={wing}
             alt=""
           />
@@ -63,7 +93,7 @@ function Home() {
       <Popular />
 
       <Nav />
-    </div>
+    </motion.div>
   );
 }
 

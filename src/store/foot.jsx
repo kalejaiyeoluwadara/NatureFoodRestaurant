@@ -10,7 +10,7 @@ function Foot({name,img,func}) {
       className={`flex flex-col   hover:text-red-600 hover:font-bold cursor-pointer items-center `}
     >
       <img className="h-[20px]" src={img} alt="" />
-      <p className=" transition-[0.3] text-[14px] ">{name}</p>
+      <p className=" transition-[0.3] text-gray-500 text-[14px] ">{name}</p>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import chick from './../assets/img/food3.png'
+import {motion} from 'framer-motion'
 import { useGlobal } from '../context';
 function Popular() {
   const { setCart, setPops, setView } = useGlobal();
@@ -11,7 +12,7 @@ function Popular() {
           onClick={() => {
             setView({ f: false, g: false, h: false, i: true });
           }}
-          className="font-[500] text-gray-400 text-[14px] "
+          className="font-[500] text-gray-600 text-[15px] "
         >
           View more
         </p>
@@ -34,14 +35,20 @@ function Popular() {
         </div>
       </section>
       <div className="w-full flex items-center justify-center mt-8">
-        <p
+        <motion.p
+          whileTap={{
+            scale: 0.9,
+          }}
+          transition={{
+            duration: 0.1,
+          }}
           onClick={() => {
             setView({ f: false, g: false, h: false, i: true });
           }}
           className="font-[600] text-gray-600 text-[15px]"
         >
           {"see more >>"}
-        </p>
+        </motion.p>
       </div>
     </main>
   );

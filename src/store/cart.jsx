@@ -1,46 +1,133 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Nav from './nav';
+import {motion,AnimatePresence} from 'framer-motion'
 import cart from "./../assets/img/cart.png";
 import book from "./../assets/img/book.png";
+// import book from "./../assets/img/book2.png";
 import cake from "./../assets/img/cake.png";
+import cancel from "./../assets/img/cancel.png";
 import search from "./../assets/img/search.png";
-const Slot = () =>{
+import { useGlobal } from '../context';
+const Slot = ({img,name,price}) =>{
+  const { list, setList,setView } = useGlobal();
+    const handleRemoveClick = () => {
+      // Find the index of the item to remove
+      const itemIndex = list.findIndex((item) => item.name === name);
+      if (itemIndex !== -1) {
+        // Create a new list without the item to remove
+        const updatedList = [
+          ...list.slice(0, itemIndex),
+          ...list.slice(itemIndex + 1),
+        ];
+
+        // Update the list state with the updated list
+        setList(updatedList);
+      }
+    };
     return (
-      <section className=" sh2 flex justify-between w-[100%] py-2 px-2 rounded-xl ">
-        <div>
-          <img className='h-[100px]' src={cake} alt="" />
+      <motion.section
+        initial={{
+          x: "-30vw",
+        }}
+        exit={{
+          x: "-100vw",
+        }}
+        animate={{
+          x: 0,
+        }}
+        transition={{
+          duration: 0.5,
+        }}
+       
+        className=" sh2 flex justify-between w-[100%] py-2 px-2 rounded-xl "
+      >
+        <div
+          onClick={() => {
+            setView({
+              a: false,
+              b: false,
+              c: false,
+              d: false,
+              e: false,
+              f: false,
+              g: false,
+              j: true,
+            });
+          }}
+        >
+          <img className="h-[100px] rounded-xl " src={img} alt="" />
         </div>
-        <div>
-          <h3 className="font-[500] text-[16px]">Special Pankcake</h3>
-          <p className="font-[600] text-[16px]">$30.00</p>
+        <div
+          onClick={() => {
+            setView({
+              a: false,
+              b: false,
+              c: false,
+              d: false,
+              e: false,
+              f: false,
+              g: false,
+              j: true,
+            });
+          }}
+        >
+          <h3 className="font-[600] text-[18px]">{name}</h3>
+          <p className="font-[600] text-gray-600 text-[15px]">{price}</p>
         </div>
-        <div className="flex flex-col items-center justify-between ">
-          <p className="font-[600] text-[20px] ">x</p>
-          <div className="flex p-2 items-center justify-center h-[30px] w-[30px] rounded-full bg-red-200  ">
-            <img className="h-[13px] w-[13px] " src={book} alt="" />
+        <div className="flex cursor-pointer flex-col items-center justify-between ">
+          <img onClick={handleRemoveClick} src={cancel} alt="" />
+          <div className="flex p-2 items-center justify-center h-[30px] w-[30px] rounded-full bg-gray-200  ">
+            <img className="h-[13px]  w-[13px] " src={book} alt="" />
           </div>
         </div>
-      </section>
+      </motion.section>
     );
 }
+const Empty = () =>{
+  return(
+    <div className='flex text-gray-600 font-bold items-center justify-center w-full '>
+      <h1>You Cart is empty</h1>
+    </div>
+  )
+}
 function Cart() {
+  const {list} = useGlobal();
+  const [state,setState] = useState([])
   return (
-    <main className='h-[100%] pb-40 py-10 px-5 w-screen  ' >
-        <section className='flex mb-12 justify-between items-center  '>
-            <img src={search} alt="" />
-            <p className='font-[600]'>Cart</p>
-            <img src={cart} alt="" />
-        </section>
+    <motion.main
+      initial={{
+        opacity: 0.2,
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      transition={{
+        duration: 0.3,
+      }}
+      className="h-[100%] pb-40 py-10 px-5 w-screen  "
+    >
+      <section className="flex mb-12 justify-between items-center  ">
+        <img src={search} alt="" />
+        <p className="font-[600]">Cart</p>
+        <img src={cart} alt="" />
+      </section>
 
-        <section className='flex flex-col gap-4 '>
-            {
-                [1,2,3,4,4,5,6].map((d)=>{
-                    return <Slot />;
-                })
-            }
-        </section>
+      <section className="flex flex-col gap-4 ">
+        <AnimatePresence>
+          {list.length === 0 ? (
+            <Empty />
+          ) : (
+            list.map((d) => {
+              return (
+                <Slot key={d.name} name={d.name} price={d.price} img={d.img} />
+              );
+            })
+          )}
+        </AnimatePresence>
+      </section>
+
       <Nav />
-    </main>
+    </motion.main>
   );
 }
 
