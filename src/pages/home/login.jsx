@@ -36,8 +36,21 @@ function Login() {
       </div>
       <div className="flex items-center flex-col justify-center mt-10 gap-6 ">
         <div className="flex flex-col gap-5 ">
-          <Input place={"Email"} />
-          <Input place={"Password"} />
+          <div className="flex rounded-[6px]  sh  w-[320px] px-4 py-3 put  ">
+            <input
+              className="in placeholder:ml-6 "
+              placeholder="Email"
+              type="mail"
+            />
+          </div>
+          <div className="flex rounded-[6px]  sh  w-[320px] px-4 py-3 put  ">
+            <input
+              className="in placeholder:ml-6 "
+              placeholder="Password"
+              type="password"
+            />
+          </div>
+         
         </div>
       </div>
       <div className="flex items-center justify-center mt-6 flex-col">
@@ -57,10 +70,17 @@ function Login() {
       <div className="flex flex-col items-center mt-6 justify-center gap-4  ">
         <button
           onClick={() => {
-            setView({ a: false, b: false, c: false, d: false, e: false,f:true,g:false })
-            setCart(false)
-          }
-        }
+            setView({
+              a: false,
+              b: false,
+              c: false,
+              d: false,
+              e: false,
+              f: true,
+              g: false,
+            });
+            setCart(false);
+          }}
           className="flex text-white rounded-xl shadow-md py-3 px-4 gap-4 mt-6 w-[290px] bg-[#25401D] capitalize  items-center justify-center "
         >
           Login

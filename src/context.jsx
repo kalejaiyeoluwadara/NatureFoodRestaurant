@@ -4,6 +4,7 @@ const AppContext = React.createContext()
 
 function AppProvider({children}) {
   const [start,setStart] = useState(true)
+  const [userName, setUserName] = useState("user101");
   const [started,setStarted] = useState(false)
   const [welcome, setWelcome] = useState(false);
   const [signup, setSignup] = useState(false);
@@ -43,6 +44,7 @@ function AppProvider({children}) {
   return (
     <AppContext.Provider
       value={{
+        userName,setUserName,
         buy,setBuy,
         start,
         pops,setPops,

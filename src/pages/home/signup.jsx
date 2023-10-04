@@ -6,14 +6,12 @@ import lock from './../../assets/img/lock.png'
 import msg from './../../assets/img/msg.png'
 import {motion} from 'framer-motion'
 import { useGlobal } from '../../context';
-const Input = ({img,place}) => (
-  <div className="flex rounded-[6px] sh  w-[320px] px-2 py-3 put gap-3 ">
-    <img src={img} alt="" />
-    <input className="in" placeholder={place} type="text" />
-  </div>
-);
+
 function Signup() {
-    const { setView } = useGlobal();
+    const { setView ,userName,setUserName} = useGlobal();
+    const handleChange = (e) =>{
+      setUserName(e.target.value);
+    }
   return (
     <motion.main
       initial={{
@@ -33,9 +31,18 @@ function Signup() {
       <div className="flex items-center flex-col justify-center mt-6 gap-6 ">
         <p className="font-[600] opacity-80 text-[23px] ">Sign up for free</p>
         <div className="flex flex-col gap-4 ">
-          <Input img={user} place={"User name"} />
-          <Input img={msg} place={"Email"} />
-          <Input img={lock} place={"Password"} />
+          <div className="flex rounded-[6px] sh  w-[320px] px-2 py-3 put gap-3 ">
+            <img src={user} alt="" />
+            <input value={userName} onChange={handleChange} className="in" placeholder="User name" type="text" />
+          </div>
+          <div className="flex rounded-[6px] sh  w-[320px] px-2 py-3 put gap-3 ">
+            <img src={msg} alt="" />
+            <input className="in" placeholder="Email" type="mail" />
+          </div>
+          <div className="flex rounded-[6px] sh  w-[320px] px-2 py-3 put gap-3 ">
+            <img src={lock} alt="" />
+            <input className="in" placeholder="Password" type='password' />
+          </div>
         </div>
       </div>
       <div className="flex flex-col items-center mt-6 justify-center gap-4  ">

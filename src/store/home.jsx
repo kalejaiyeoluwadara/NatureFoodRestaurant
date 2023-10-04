@@ -11,7 +11,7 @@ import Menu from './menu';
 import { useGlobal } from '../context';
 import Popular from './popular';
 function Home() {
-  const { setCart,setPops,setView } = useGlobal();
+  const { setCart,setPops,setView,userName } = useGlobal();
   
   return (
     <motion.div
@@ -35,7 +35,7 @@ function Home() {
           />
           {/* <div className="h-[50px]  w-[50px] rounded-[50%] bg-white shadow-md "></div> */}
           <div className="leading-[23px]">
-            <h1 className="font-[600] text-[22px] ">Welcome, Dara</h1>
+            <h1 className="font-[600] text-[22px] ">Welcome, {userName}</h1>
             <p className="text-gray-500">Lagos, Nigeria</p>
           </div>
         </div>
