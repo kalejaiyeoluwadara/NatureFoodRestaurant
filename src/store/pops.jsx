@@ -4,7 +4,7 @@ import book from "./../assets/img/book.png";
 import alarm from "./../assets/img/alarm.png";
 import add from "./../assets/img/add.png";
 import cake from "./../assets/img/cake.png";
-import port from "./../assets/img/port3.jpg";
+import port from "./../assets/img/profile.jpg";
 import search from "./../assets/img/search.png";
 import { motion } from 'framer-motion';
 import Nav from './nav';
@@ -155,9 +155,9 @@ function Pops() {
       </section>
 
       <div className="flex mt-10 justify-between items-center">
-        <div className="flex bg-gray-100 items-center justify-center  rounded-md px-4 py-4 w-[300px]  ">
-          <img src={search} className="mr-4" alt="" />
-          <input type="text" placeholder="search meal" />
+        <div className="flex  bg-gray-100 items-center justify-start gap-3  rounded-md px-4 py-4 w-[280px]  ">
+          <img src={search} className="" alt="" />
+          <input type="text" placeholder="Search meals" />
         </div>
         <img src={add} alt="" />
       </div>

@@ -15,6 +15,7 @@ function AppProvider({children}) {
   const [cart,setCart] = useState(false)
   const [bookings, setBookings] = useState(false);
   const [pops, setPops] = useState(false);
+  const [arr,setArr] = useState([]);
   const setView = ({
     a = false,
     b = false,
@@ -57,7 +58,7 @@ function AppProvider({children}) {
         home,
         setSignup,
         login,
-        setLogin,setView,setCart,cart,bookings,setBookings
+        setLogin,setView,setCart,cart,bookings,setBookings,arr,setArr
       }}
     >
       {children}

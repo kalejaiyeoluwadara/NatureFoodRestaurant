@@ -35,8 +35,8 @@ function Home() {
           />
           {/* <div className="h-[50px]  w-[50px] rounded-[50%] bg-white shadow-md "></div> */}
           <div className="leading-[23px]">
-            <h1 className="font-[600] text-[22px] ">Welcome, {userName}</h1>
-            <p className="text-gray-500">Lagos, Nigeria</p>
+            <h1 className="font-[600] text-[20px] ">Welcome, {userName}</h1>
+            <p className="text-gray-500">Ogun, Nigeria</p>
           </div>
         </div>
 

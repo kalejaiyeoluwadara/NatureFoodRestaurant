@@ -26,11 +26,24 @@ function Popular() {
             <h3 className="font-[600] text-[16px]">Chicken Salad</h3>
             <p className="font-[600] text-gray-600 text-[15px]">1hr-30min</p>
           </div>
-          <div className="flex w-[100%] justify-between  items-center">
+          <div
+            onClick={() => {
+              setView({ f: false, g: false, h: false,i:true });
+            }}
+            className="flex w-[100%] justify-between  items-center"
+          >
             <h3 className="font-[600] text-[16px]">$30.00</h3>
-            <button className="bg-red-600 px-4 py-1 rounded-md text-white font-[500] ">
+            <motion.button
+              whileTap={{
+                scale: 0.9,
+              }}
+              transition={{
+                duration: 0.1,
+              }}
+              className="bg-red-600 px-4 py-1 rounded-md text-white font-[500] "
+            >
               Order
-            </button>
+            </motion.button>
           </div>
         </div>
       </section>

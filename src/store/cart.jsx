@@ -3,13 +3,25 @@ import Nav from './nav';
 import {motion,AnimatePresence} from 'framer-motion'
 import cart from "./../assets/img/cart.png";
 import book from "./../assets/img/book.png";
-// import book from "./../assets/img/book2.png";
+import book2 from "./../assets/img/book2.png";
 import cake from "./../assets/img/cake.png";
 import cancel from "./../assets/img/cancel.png";
 import search from "./../assets/img/search.png";
 import { useGlobal } from '../context';
 const Slot = ({img,name,price}) =>{
-  const { list, setList,setView } = useGlobal();
+  const { list, setList,setView,arr,setArr } = useGlobal();
+     const addPropsToArr = () => {
+       // Create an object from the props
+       const propsObj = {
+         img,
+         name,
+         price,
+       };
+
+       // Add the props object to the arr
+       setArr([propsObj]);
+       console.log(arr);
+     };
     const handleRemoveClick = () => {
       // Find the index of the item to remove
       const itemIndex = list.findIndex((item) => item.name === name);
@@ -53,6 +65,7 @@ const Slot = ({img,name,price}) =>{
               g: false,
               j: true,
             });
+            addPropsToArr()
           }}
         >
           <img className="h-[100px] rounded-xl " src={img} alt="" />
@@ -69,6 +82,7 @@ const Slot = ({img,name,price}) =>{
               g: false,
               j: true,
             });
+            addPropsToArr();
           }}
         >
           <h3 className="font-[600] text-[18px]">{name}</h3>
@@ -77,7 +91,7 @@ const Slot = ({img,name,price}) =>{
         <div className="flex cursor-pointer flex-col items-center justify-between ">
           <img onClick={handleRemoveClick} src={cancel} alt="" />
           <div className="flex p-2 items-center justify-center h-[30px] w-[30px] rounded-full bg-gray-200  ">
-            <img className="h-[13px]  w-[13px] " src={book} alt="" />
+            <img className="h-[13px]  w-[13px] " src={book2} alt="" />
           </div>
         </div>
       </motion.section>
@@ -91,7 +105,7 @@ const Empty = () =>{
   )
 }
 function Cart() {
-  const {list} = useGlobal();
+  const {list,setArr,arr} = useGlobal();
   const [state,setState] = useState([])
   return (
     <motion.main
@@ -117,9 +131,9 @@ function Cart() {
           {list.length === 0 ? (
             <Empty />
           ) : (
-            list.map((d) => {
+            list.map((d,id) => {
               return (
-                <Slot key={d.name} name={d.name} price={d.price} img={d.img} />
+                <Slot key={id} name={d.name} price={d.price} img={d.img} />
               );
             })
           )}
